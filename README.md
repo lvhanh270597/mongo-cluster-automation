@@ -1,4 +1,5 @@
-# mongo-cluster-automation
+# Mongo cluster automation
+* This tool can help you create an cluster of three instance with some types
 ## Requires:
 * There shared folder of three instance MongoDB, they named on config/config.json file.
 ## Steps
