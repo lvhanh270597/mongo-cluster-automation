@@ -58,10 +58,6 @@ class Mongo:
         """Create and Send to shared folder"""
         filepath = os.path.join(self.config["data"]["sharedir"], KEYNAME)
         subprocess.call([os.path.join(SHEPATH, "create_keyfile.sh"), filepath])
-        filepath = os.path.join(self.config["data"]["sharedir"], KEYNAME)
-        despath = os.path.join(self.config["data"]["datadir"], KEYNAME)
-        subprocess.call(["cp", filepath, despath])
-        self.KEYPATH = despath
     # For slave
     def get_keyfile(self):
         """Copy from sharefolder"""
@@ -72,6 +68,7 @@ class Mongo:
 
     def create_cluster(self):
         self.create_keyfile()
+        self.get_keyfile()
         """mongod --fork --keyFile %s --replSet %s --bind_ip 0.0.0.0 --port %s  --logappend --logpath %s --dbpath %s --pidfilepath %s"""
         command = config["config"]["create_cluster"] % (
             self.KEYPATH,
