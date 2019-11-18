@@ -5,9 +5,9 @@ import os, json
 BASPATH = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 CNFPATH = path.join(BASPATH, "config")
 RESPATH = path.join(BASPATH, "resource")
-KEYPATH = path.join(BASPATH, "keyfile.key")
 SHEPATH = path.join(RESPATH, "shell")
 CNFNAME = "config.json"
+KEYNAME = "keyfile.key"
 
 config = dict()
 with open(path.join(CNFPATH, CNFNAME)) as filedata:
