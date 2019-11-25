@@ -1,1 +1,54 @@
-/home/hanhlv/tmp/reason/share/config/config.json
+{
+    "accounts" : {
+        "admin" : {
+            "username" : "admin",
+            "password" : "password"
+        },
+        "other": {
+            "username" : "cmdb",
+            "password" : "password",
+            "db" : "cmdb"
+        }
+    },
+    "repl_name" : "auto_repl",
+    "hosts" : {
+        "sdk-dev-47-120": {
+            "service": {
+                "port": "27017"
+            },
+            "data" : {
+                "sharedir": "/home/hanhlv2/test/",
+                "datadir" : "/tmp/mongo/",
+                "log_path" : "/tmp/mongo/log/mongo.log",
+                "data_path" : "/tmp/mongo/data",
+                "pidfile" : "/tmp/mongo/mongod.pid"
+            }
+        },
+        "sdk-dev-47-121": {
+            "service": {
+                "port": "27017"
+            },
+            "data" : {
+                "sharedir": "/home/hanhlv2/test/",
+                "datadir" : "/tmp/mongo/",
+                "log_path" : "/tmp/mongo/log/mongo.log",
+                "data_path" : "/tmp/mongo/data",
+                "pidfile" : "/tmp/mongo/mongod.pid"
+            }
+        },
+        "sdk-dev-47-122": {
+            "service": {
+                "port": "27017"
+            },
+            "data" : {
+                "sharedir": "/home/hanhlv2/test/",
+                "datadir" : "/tmp/mongo/",
+                "log_path" : "/tmp/mongo/log/mongo.log",
+                "data_path" : "/tmp/mongo/data",
+                "pidfile" : "/tmp/mongo/mongod.pid"
+            }
+        }
+    },
+    "master" : "sdk-dev-47-120",
+    "slaves" : ["sdk-dev-47-121", "sdk-dev-47-122"]
+}

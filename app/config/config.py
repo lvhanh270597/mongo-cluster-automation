@@ -1,15 +1,32 @@
+from os import path
 import os, json
-import io
 
-BASEDIR = os.path.dirname(os.path.abspath(__name__))
-APPPATH = os.path.join(BASEDIR, "app")
-CNFPATH = os.path.join(APPPATH, "config")
-SRCPATH = os.path.join(APPPATH, "source")
-RESPATH = os.path.join(APPPATH, "resource")
-SHEPATH = os.path.join(RESPATH, "shell")
-SHAPATH = os.path.join(BASEDIR, "share")
+
+BASPATH = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+CNFPATH = path.join(BASPATH, "config")
+RESPATH = path.join(BASPATH, "resource")
+KEYPATH = path.join(BASPATH, "keyfile.key")
+SHEPATH = path.join(RESPATH, "shell")
 CNFNAME = "config.json"
-SIPMASTER = "172.16.176.1"
+
 config = dict()
-with open(os.path.join(CNFPATH, CNFNAME)) as filedata:
+with open(path.join(CNFPATH, CNFNAME)) as filedata:
     config = json.load(filedata)
+
+config["add"] = {
+    "admin" : path.join(RESPATH, "users", "admin.js"),
+    "user" : path.join(RESPATH, "users", "user.js"),
+    "init" : path.join(RESPATH, "cluster", "init_cluster.js"),
+    "hosts" : path.join(RESPATH, "cluster", "add_hosts.js"),
+    
+    "tmp_admin" : path.join(RESPATH, "users", "admin.tmp.js"),
+    "tmp_user" : path.join(RESPATH, "users", "user.tmp.js"),
+    "tmp_init" : path.join(RESPATH, "cluster", "init_cluster.tmp.js"),
+    "tmp_hosts" : path.join(RESPATH, "cluster", "add_hosts.tmp.js")
+}
+
+config["config"] = {
+    "create_users" : "mongod --fork --port %s --bind_ip 0.0.0.0 --logappend --logpath %s --dbpath %s --pidfilepath %s",
+    "create_cluster" : "mongod --fork --keyFile %s --replSet %s --bind_ip 0.0.0.0 --port %s  --logappend --logpath %s --dbpath %s --pidfilepath %s",
+    "start_service" : "mongod --fork --keyFile %s --replSet %s  --bind_ip 0.0.0.0 --port %s --logappend --logpath %s --dbpath %s --pidfilepath %s"
+}

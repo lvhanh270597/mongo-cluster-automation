@@ -10,38 +10,38 @@
             "db" : "cmdb"
         }
     },
-    "repl_name" : "test_repl",
+    "repl_name" : "auto_repl",
     "hosts" : {
-        "172.16.176.130": {
+        "sdk-dev-47-120": {
             "service": {
-                "port": "27019"
+                "port": "27017"
             },
             "data" : {
-                "sharedir": "/root/tmp/",
+                "sharedir": "/home/hanhlv2/test/",
                 "datadir" : "/tmp/mongo/",
                 "log_path" : "/tmp/mongo/log/mongo.log",
                 "data_path" : "/tmp/mongo/data",
                 "pidfile" : "/tmp/mongo/mongod.pid"
             }
         },
-        "172.16.176.131": {
+        "sdk-dev-47-121": {
             "service": {
-                "port": "27019"
+                "port": "27017"
             },
             "data" : {
-                "sharedir": "/root/shared/",
+                "sharedir": "/home/hanhlv2/test/",
                 "datadir" : "/tmp/mongo/",
                 "log_path" : "/tmp/mongo/log/mongo.log",
                 "data_path" : "/tmp/mongo/data",
                 "pidfile" : "/tmp/mongo/mongod.pid"
             }
         },
-        "172.16.176.132": {
+        "sdk-dev-47-122": {
             "service": {
-                "port": "27019"
+                "port": "27017"
             },
             "data" : {
-                "sharedir": "/root/test/",
+                "sharedir": "/home/hanhlv2/test/",
                 "datadir" : "/tmp/mongo/",
                 "log_path" : "/tmp/mongo/log/mongo.log",
                 "data_path" : "/tmp/mongo/data",
@@ -49,6 +49,6 @@
             }
         }
     },
-    "master" : "172.16.176.130",
-    "slaves" : ["172.16.176.131", "172.16.176.132"]
+    "master" : "sdk-dev-47-120",
+    "slaves" : ["sdk-dev-47-121", "sdk-dev-47-122"]
 }
